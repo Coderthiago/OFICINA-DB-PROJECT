@@ -1,0 +1,87 @@
+
+USE OFICINA;
+-- select * from Cliente;
+-- Inserção de dados de exemplo
+-- Clientes
+
+INSERT INTO Cliente VALUES
+(1, 'Ana Souza', '12345678901', 'Rua das Flores, 12', '11987654321'),
+(2, 'Bruno Lima', '23456789012', 'Av. Brasil, 100', '11986543210'),
+(3, 'Carlos Silva', '34567890123', 'Rua A, 33', '11999887766'),
+(4, 'Daniela Rocha', '45678901234', 'Rua B, 44', '11988776655'),
+(5, 'Eduardo Mendes', '56789012345', 'Rua C, 55', '11977665544'),
+(6, 'Fernanda Dias', '67890123456', 'Rua D, 66', '11966554433'),
+(7, 'Gabriel Alves', '78901234567', 'Rua E, 77', '11955443322'),
+(8, 'Helena Costa', '89012345678', 'Rua F, 88', '11944332211'),
+(9, 'Igor Pereira', '90123456789', 'Rua G, 99', '11933221100'),
+(10, 'Joana Martins', '01234567890', 'Rua H, 11', '11922110099'),
+(11, 'Karla Ramos', '11223344556', 'Rua I, 22', '11911009988'),
+(12, 'Lucas Nogueira', '22334455667', 'Rua J, 33', '11900998877'),
+(13, 'Mariana Lopes', '33445566778', 'Rua K, 44', '11899887766'),
+(14, 'Nicolas Farias', '44556677889', 'Rua L, 55', '11888776655'),
+(15, 'Olívia Andrade', '55667788990', 'Rua M, 66', '11877665544');
+
+-- select * from Equipe;
+-- Equipes
+INSERT INTO Equipe VALUES
+(1, 'Equipe Alfa'), (2, 'Equipe Beta'), (3, 'Equipe Gama'), (4, 'Equipe Delta'), (5, 'Equipe Ômega'),
+(6, 'Equipe Sigma'), (7, 'Equipe Teta'), (8, 'Equipe Zeta'), (9, 'Equipe Kappa'), (10, 'Equipe Lambda'),
+(11, 'Equipe Mu'), (12, 'Equipe Nu'), (13, 'Equipe Xi'), (14, 'Equipe Pi'), (15, 'Equipe Rho');
+
+-- select * from Veiculo;
+-- Veículos
+INSERT INTO Veiculo VALUES
+(1, 1, 'Civic', 'ABC1234'), (2,2, 'Corolla', 'DEF5678'), (3, 3, 'Onix', 'GHI9012'), (4, 4, 'HB20', 'JKL3456'),
+(5, 5, 'Ka', 'MNO7890'), (6, 6, 'Gol', 'PQR1234'), (7, 7, 'Palio', 'STU5678'), (8, 8, 'Argo', 'VWX9012'),
+(9, 9, 'Uno', 'YZA3456'), (10, 10, 'Cruze', 'BCD7890'), (11,11, 'Focus', 'EFG1234'), (12, 12, 'Ranger', 'HIJ5678'),
+(13, 13, 'Duster', 'KLM9012'), (14, 14, 'Sandero', 'NOP3456'), (15, 15, 'Logan', 'QRS7890');
+
+-- select * from Mecanico;
+-- Mecânicos
+INSERT INTO Mecanico VALUES
+(1, 1, 'André', 'Freios'), (2, 2, 'Beatriz', 'Motor'), (3, 3, 'Caio', 'Elétrica'), (4, 4, 'Diana', 'Suspensão'),
+(5, 5, 'Eduarda', 'Pintura'), (6, 6, 'Felipe', 'Transmissão'), (7, 7, 'Gustavo', 'Freios'), (8, 8, 'Hugo', 'Motor'),
+(9, 9, 'Isabela', 'Elétrica'), (10, 10, 'João', 'Suspensão'), (11, 11, 'Katia', 'Pintura'), (12, 12, 'Leonardo', 'Transmissão'),
+(13, 13, 'Marcos', 'Freios'), (14, 14, 'Natália', 'Motor'), (15, 15, 'Otávio', 'Elétrica');
+
+-- select * from Servico;
+-- Serviços
+INSERT INTO Servico VALUES
+(1, 'Troca de óleo', 100), (2, 'Revisão geral', 300), (3, 'Alinhamento', 150), (4, 'Balanceamento', 120),
+(5, 'Troca de pastilhas', 200), (6, 'Reparo elétrico', 180), (7, 'Lavagem completa', 90), (8, 'Polimento', 110),
+(9, 'Reparo de motor', 500), (10, 'Troca de pneus', 400), (11, 'Troca de correia', 250), (12, 'Pintura', 600),
+(13, 'Troca de bateria', 300), (14, 'Revisão elétrica', 350), (15, 'Diagnóstico eletrônico', 220);
+
+-- select * from Peca;
+-- Peças
+INSERT INTO Peca VALUES
+(1, 'Óleo sintético', 70), (2, 'Pastilha de freio', 90), (3, 'Correia dentada', 85), (4, 'Bateria 60Ah', 250),
+(5, 'Filtro de ar', 60), (6, 'Filtro de óleo', 40), (7, 'Vela de ignição', 30), (8, 'Pneu aro 15', 300),
+(9, 'Farol dianteiro', 150), (10, 'Lanterna traseira', 130), (11, 'Amortecedor', 200), (12, 'Parachoque', 400),
+(13, 'Retrovisor', 90), (14, 'Radiador', 350), (15, 'Disco de freio', 180);
+
+
+-- select * from OrdemServico;
+-- Ordens de serviço
+INSERT INTO OrdemServico VALUES
+(1, 1, 1, 'Aberta', '2025-04-01', NULL), (2, 2, 2, 'Em andamento', '2025-04-02', NULL), (3, 3, 3, 'Finalizada', '2025-03-28', '2025-03-30 14:00:00'),
+(4, 4, 4, 'Aberta', '2025-04-03', NULL), (5, 5, 5, 'Finalizada', '2025-03-27', '2025-03-29 13:00:00'), (6, 6, 6, 'Em andamento', '2025-04-02', NULL),
+(7, 7, 7, 'Aberta', '2025-04-01', NULL), (8, 8, 8, 'Finalizada', '2025-03-25', '2025-03-27 15:00:00'), (9, 9, 9,  'Em andamento', '2025-04-03', NULL),
+(10, 10, 10, 'Aberta',  '2025-04-04', NULL), (11, 11, 11, 'Finalizada', '2025-03-26', '2025-03-28 11:00:00'), (12, 12, 12, 'Aberta', '2025-04-01', NULL),
+(13, 13, 13, 'Em andamento', '2025-04-03', NULL), (14, 14, 14, 'Aberta', '2025-04-04', NULL), (15, 15, 15, 'Finalizada', '2025-03-24', '2025-03-26 09:00:00');
+
+
+-- select * from ServicoRealizado;
+-- Serviços realizados
+INSERT INTO ServicoRealizado VALUES
+(1, 1, 1, 1, 100), (2, 2, 2, 1, 300), (3, 3, 3, 1, 150), (4, 4, 4, 1, 120), (5, 5, 5, 1, 200),
+(6, 6, 6, 1, 180), (7, 7, 7, 1, 90), (8, 8, 8, 1, 110), (9, 9, 9, 1, 500), (10, 10, 10, 1, 400),
+(11, 11, 11, 1, 250), (12, 12, 12, 1, 600), (13, 13, 13, 1, 300), (14, 14, 14, 1, 350), (15, 15, 15, 1, 220);
+
+
+-- select * from PecaUtilizada;
+-- Peças utilizadas
+INSERT INTO PecaUtilizada VALUES
+(1, 1, 1, 1, 70), (2, 2, 2, 1, 90), (3, 3, 3, 1, 85), (4, 4, 4, 1, 250), (5, 5, 5, 1, 60),
+(6, 6, 6, 1, 40), (7, 7, 7, 1, 30), (8, 8, 8, 1, 300), (9, 9, 9, 1, 150), (10, 10, 10, 1, 130),
+(11, 11, 11, 1, 200), (12, 12, 12, 1, 400), (13, 13, 13, 1, 90), (14, 14, 14, 1, 350), (15, 15, 15, 1, 180);

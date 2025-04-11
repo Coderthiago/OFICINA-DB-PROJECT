@@ -1,0 +1,89 @@
+-- Script de criação de banco de dados para a oficina de carros
+
+-- SHOW TABLES;
+CREATE DATABASE OFICINA;
+USE OFICINA;
+
+-- TABELA CLIENTE
+CREATE TABLE Cliente (
+    idCliente INT PRIMARY KEY auto_increment,
+    nome VARCHAR(45),
+    cpf CHAR(11),
+    endereco VARCHAR(45),
+    telefone CHAR(11)
+);
+
+
+-- TABELA VEICULO
+CREATE TABLE Veiculo (
+    idVeiculo INT PRIMARY KEY,
+    idVCliente INT,
+    modelo VARCHAR(45),
+    placa CHAR(7),
+    FOREIGN KEY (idVCliente) REFERENCES Cliente(idCliente)
+);
+
+-- TABELA EQUIPE
+CREATE TABLE Equipe (
+    idEquipe INT PRIMARY KEY auto_increment,
+    nomeEquipe VARCHAR(45)
+);
+
+
+-- TABELA MECANICO
+CREATE TABLE Mecanico (
+    idMecanico INT PRIMARY KEY auto_increment,
+    idMEquipe INT,
+    nome VARCHAR(45),
+    especialidade VARCHAR(45),
+    FOREIGN KEY (idMEquipe) REFERENCES Equipe(idEquipe)
+);
+
+-- TABELA ORDEM DE SERVICO
+CREATE TABLE OrdemServico (
+    idOrdemServico INT PRIMARY KEY,
+    idOSVeiculo INT,
+    idOSEquipe INT,
+    status ENUM('Aberta', 'Em andamento', 'Finalizada'),
+    dataEntrada DATE,
+    dataSaida DATETIME,
+    FOREIGN KEY (idOSVeiculo) REFERENCES Veiculo(idVeiculo),
+    FOREIGN KEY (idOSEquipe) REFERENCES Equipe(idEquipe)
+);
+
+-- TABELA SERVICO
+CREATE TABLE Servico (
+    idServico INT PRIMARY KEY,
+    descricao VARCHAR(45),
+    valor FLOAT
+);
+
+-- TABELA PECA
+CREATE TABLE Peca (
+    idPeca INT PRIMARY KEY,
+    descricao VARCHAR(45),
+    valor FLOAT
+);
+
+-- TABELA SERVIÇO REALIZADO
+CREATE TABLE ServicoRealizado (
+    idServicoRealizado INT PRIMARY KEY,
+    idSROrdemServico INT,
+    idSRServico INT,
+    quantidade FLOAT,
+    subtotal DECIMAL(10,2),
+    FOREIGN KEY (idSROrdemServico) REFERENCES OrdemServico(idOrdemServico),
+    FOREIGN KEY (idSRServico) REFERENCES Servico(idServico)
+);
+
+
+-- TABELA PEÇA UTILIZADA
+CREATE TABLE PecaUtilizada (
+    idPecaUtilizada INT PRIMARY KEY,
+    idOrdemServico INT,
+    idPeca INT,
+    quantidade INT,
+    subtotal FLOAT,
+    FOREIGN KEY (idOrdemServico) REFERENCES OrdemServico(idOrdemServico),
+    FOREIGN KEY (idPeca) REFERENCES Peca(idPeca)
+);
